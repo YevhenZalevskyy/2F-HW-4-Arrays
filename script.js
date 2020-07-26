@@ -3,10 +3,10 @@ const themes = ['Variables and types', 'Cycles and branching', 'Functions'];
 const marks = [4, 5, 3, 4, 5, 5];
 
 function getPairs(arr) {
-  const arrSort = [...arr].sort();
+  arr = [...arr].sort();
   const pairs = [];
-  for (let i = 0; i < arrSort.length; i=i+2) {
-    pairs.push([arrSort[i], arrSort[i+1]]);
+  for (let i = 0; i < arr.length; i=i+2) {
+    pairs.push([arr[i], arr[i+1]]);
   }
   return pairs;
 }
@@ -22,7 +22,17 @@ function addThemes(arr1, arr2) {
 }
 const pairsThemes = addThemes(pairs, themes);
 
-
+function studentMark (arr1, arr2) {
+  arr1 = [...arr1];
+  arr2 = [...arr2];
+  for (let i = 0; i < arr2.length; i++) {
+    arr1[i] = arr1[i].split();
+    arr1[i].push(arr2[i]);
+  }
+  return arr1;
+}
+const studentsMarks = studentMark(students, marks);
 
 console.log(pairs);
 console.log(pairsThemes);
+console.log(studentsMarks);
